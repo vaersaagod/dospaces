@@ -1,0 +1,42 @@
+{
+  "name": "vaersaagod/dospaces",
+  "description": "DigitalOcean Spaces integration for Craft CMS",
+  "type": "craft-plugin",
+  "keywords": [
+    "aws",
+    "cms",
+    "craftcms",
+    "flysystem",
+    "digitalocean",
+    "spaces",
+    "yii2"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Værsågod",
+      "homepage": "https://www.vaersaagod.no/"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/vaersaagod/dospaces/issues?state=open",
+    "source": "https://github.com/vaersaagod/dospaces",
+    "docs": "https://github.com/vaersaagod/dospaces",
+    "rss": "https://github.com/vaersaagod/dospaces/commits/master.atom"
+  },
+  "require": {
+    "craftcms/cms": "^3.0.0",
+    "league/flysystem-aws-s3-v3": "^1.0.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "vaersaagod\\dospaces\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "DigitalOcean Spaces Volume",
+    "handle": "dospaces",
+    "changelogUrl": "https://raw.githubusercontent.com/vaersaagod/dospaces/master/CHANGELOG.md",
+    "downloadUrl": "https://github.com/vaersaagod/dospaces/archive/master.zip"
+  }
+}

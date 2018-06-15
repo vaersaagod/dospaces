@@ -1,0 +1,95 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: "Access Key ID"|t('dospaces'),
+    id: 'keyId',
+    required: true,
+    name: 'keyId',
+    value: volume.keyId,
+    errors: volume.getErrors('keyId'),
+}) }}
+
+{{ forms.textField({
+    label: "Secret Access Key"|t('dospaces'),
+    id: 'secret',
+    required: true,
+    name: 'secret',
+    value: volume.secret,
+    errors: volume.getErrors('secret'),
+}) }}
+
+{{ forms.textField({
+    label: "Endpoint"|t('dospaces'),
+    id: 'endpoint',
+    required: true,
+    value: volume.endpoint,
+    name: 'endpoint',
+    errors: volume.getErrors('endpoint'),
+    placeholder: "https://ams3.digitaloceanspaces.com"|t('dospaces') 
+}) }}
+
+{{ forms.textField({
+    label: "Region"|t('dospaces'),
+    id: 'region',
+    required: true,
+    value: volume.region,
+    name: 'region',
+    errors: volume.getErrors('region'),
+    placeholder: "ams3"|t('dospaces') 
+}) }}
+
+{{ forms.textField({
+    label: "Bucket"|t('dospaces'),
+    id: 'bucket',
+    required: true,
+    value: volume.bucket,
+    name: 'bucket',
+    errors: volume.getErrors('bucket'),
+    placeholder: "your-bucket-name"|t('dospaces') 
+}) }}
+
+{{ forms.textField({
+    label: "Subfolder"|t('dospaces'),
+    instructions: "If you want to use a bucket’s subfolder as a Volume, specify the path to use here."|t('dospaces'),
+    id: 'subfolder',
+    class: 'ltr',
+    name: 'subfolder',
+    value: volume.subfolder,
+    errors: volume.getErrors('subfolder'),
+    required: false,
+    placeholder: "path/to/subfolder"|t('dospaces')
+}) }}
+
+<hr>
+
+{% set cacheInput %}
+    {% set expires = (volume.expires|length > 0 ? volume.expires|split(' ') : ['', ''])%}
+
+    <div class="flex">
+        <div>
+            {{ forms.text({
+                id: 'expiresAmount',
+                value: expires[0],
+                size: 2,
+                class: 'do-expires-amount'
+            }) }}
+        </div>
+        {{ forms.select({
+            id: 'expiresPeriod',
+            options: periods,
+            value: expires[1],
+            class: 'do-expires-period'
+        }) }}
+    </div>
+    {{ forms.hidden({
+        name: "expires",
+        value: volume.expires,
+        class: "expires-combined"
+    }) }}
+{% endset %}
+
+{{ forms.field({
+    label: "Cache Duration"|t,
+    instructions: "The Cache-Control duration that assets should be uploaded to the cloud with.",
+    id: 'cacheDuration',
+}, cacheInput) }}

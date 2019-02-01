@@ -1,61 +1,77 @@
 {% import "_includes/forms" as forms %}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     label: "Access Key ID"|t('dospaces'),
     id: 'keyId',
-    required: true,
+    class: 'ltr',
     name: 'keyId',
-    value: volume.keyId,
-    errors: volume.getErrors('keyId'),
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (volume is defined ? volume.keyId : null),
+    errors: (volume is defined ? volume.getErrors('keyId') : null),
+    required: true,
 }) }}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     label: "Secret Access Key"|t('dospaces'),
     id: 'secret',
-    required: true,
+    class: 'ltr',
     name: 'secret',
-    value: volume.secret,
-    errors: volume.getErrors('secret'),
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (volume is defined ? volume.secret : null),
+    errors: (volume is defined ? volume.getErrors('secret') : null),
+    required: true,
 }) }}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     label: "Endpoint"|t('dospaces'),
     id: 'endpoint',
-    required: true,
-    value: volume.endpoint,
+    class: 'ltr',
     name: 'endpoint',
-    errors: volume.getErrors('endpoint'),
-    placeholder: "https://ams3.digitaloceanspaces.com"|t('dospaces') 
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (volume is defined ? volume.endpoint : null),
+    errors: (volume is defined ? volume.getErrors('endpoint') : null),
+    required: true,
 }) }}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     label: "Region"|t('dospaces'),
     id: 'region',
-    required: true,
-    value: volume.region,
+    class: 'ltr',
     name: 'region',
-    errors: volume.getErrors('region'),
-    placeholder: "ams3"|t('dospaces') 
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (volume is defined ? volume.region : null),
+    errors: (volume is defined ? volume.getErrors('region') : null),
+    required: true,
+    placeholder: "ams3"|t('dospaces')
 }) }}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     label: "Bucket"|t('dospaces'),
     id: 'bucket',
-    required: true,
-    value: volume.bucket,
+    class: 'ltr',
     name: 'bucket',
-    errors: volume.getErrors('bucket'),
-    placeholder: "your-bucket-name"|t('dospaces') 
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (volume is defined ? volume.bucket : null),
+    errors: (volume is defined ? volume.getErrors('bucket') : null),
+    required: true,
+    placeholder: "your-bucket-name"|t('dospaces')
 }) }}
 
-{{ forms.textField({
+{{ forms.autosuggestField({
     label: "Subfolder"|t('dospaces'),
     instructions: "If you want to use a bucket’s subfolder as a Volume, specify the path to use here."|t('dospaces'),
     id: 'subfolder',
     class: 'ltr',
     name: 'subfolder',
-    value: volume.subfolder,
-    errors: volume.getErrors('subfolder'),
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (volume is defined ? volume.subfolder : null),
+    errors: (volume is defined ? volume.getErrors('subfolder') : null),
     required: false,
     placeholder: "path/to/subfolder"|t('dospaces')
 }) }}

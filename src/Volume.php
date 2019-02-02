@@ -82,6 +82,39 @@ class Volume extends FlysystemVolume
      * @var string Cache expiration period.
      */
     public $expires = '';
+
+    // Getters
+    // =========================================================================
+
+	public function getSubfolder ()
+	{
+		return \Craft::parseEnv($this->subfolder);
+	}
+
+	public function getKeyId ()
+	{
+		return \Craft::parseEnv($this->keyId);
+	}
+
+	public function getSecret ()
+	{
+		return \Craft::parseEnv($this->secret);
+	}
+
+	public function getEndpoint ()
+	{
+		return \Craft::parseEnv($this->endpoint);
+	}
+
+	public function getBucket ()
+	{
+		return \Craft::parseEnv($this->bucket);
+	}
+
+	public function getRegion ()
+	{
+		return \Craft::parseEnv($this->region);
+	}
     
     // Public Methods
     // =========================================================================
@@ -113,8 +146,8 @@ class Volume extends FlysystemVolume
      */
     public function getRootUrl()
     {
-        if (($rootUrl = parent::getRootUrl()) !== false && $this->subfolder) {
-            $rootUrl .= rtrim($this->subfolder, '/') . '/';
+        if (($rootUrl = parent::getRootUrl()) !== false && $this->getSubfolder()) {
+            $rootUrl .= rtrim($this->getSubfolder(), '/') . '/';
         }
         return $rootUrl;
     }
@@ -132,7 +165,7 @@ class Volume extends FlysystemVolume
 
         $client = static::client($config);
 
-        return new AwsS3Adapter($client, $this->bucket, $this->subfolder);
+        return new AwsS3Adapter($client, $this->getBucket(), $this->getSubfolder());
     }
 
     /**
@@ -172,10 +205,10 @@ class Volume extends FlysystemVolume
      */
     private function _getConfigArray()
     {
-        $keyId = $this->keyId;
-        $secret = $this->secret;
-        $region = $this->region;
-        $endpoint = $this->endpoint;
+        $keyId = $this->getKeyId();
+        $secret = $this->getSecret();
+        $region = $this->getRegion();
+        $endpoint = $this->getEndpoint();
 
         return self::_buildConfigArray($keyId, $secret, $region, $endpoint);
     }

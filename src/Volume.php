@@ -83,6 +83,11 @@ class Volume extends FlysystemVolume
      */
     public $expires = '';
 
+    /**
+     * @var string Content Disposition value.
+     */
+    public $contentDisposition = '';
+
     // Getters
     // =========================================================================
 
@@ -138,6 +143,12 @@ class Volume extends FlysystemVolume
         return Craft::$app->getView()->renderTemplate('dospaces/volumeSettings', [
             'volume' => $this,
             'periods' => array_merge(['' => ''], Assets::periodList()),
+            'contentDispositionOptions' => [
+                '' => '--- none ---',
+                'inline' => 'inline',
+                'attachment' => 'attachment'
+            ],
+            'contentDisposition' => $this->contentDisposition
         ]);
     }
 
@@ -190,6 +201,7 @@ class Volume extends FlysystemVolume
             $expires->modify('+' . $this->expires);
             $diff = $expires->format('U') - $now->format('U');
             $config['CacheControl'] = 'max-age=' . $diff . ', must-revalidate';
+            $config['ContentDisposition'] = $this->contentDisposition;
         }
 
         return parent::addFileMetadataToConfig($config);

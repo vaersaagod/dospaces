@@ -110,5 +110,15 @@
     id: 'cacheDuration',
 }, cacheInput) }}
 
+{{ forms.selectField({
+    label: "Content Disposition"|t,
+    instructions: "The Content Disposition is a header indicating if the content is expected to be displayed inline in the browser, that is, as a Web page or as part of a Web page, or as an attachment, that is downloaded and saved locally"|t,
+    id: 'contentDisposition',
+    name: 'contentDisposition',
+    options: contentDispositionOptions,
+    value: volume.contentDisposition,
+    class: 'do-content-disposition'
+}) }}
+
 
 {% do view.registerAssetBundle("vaersaagod\\dospaces\\DoSpacesBundle") %}

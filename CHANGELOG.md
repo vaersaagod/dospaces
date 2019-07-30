@@ -1,8 +1,12 @@
 # Changelog
 
-## 1.1.1 - 2019-02-26
+## 1.1.2 - 2019-07-30
 ### Added
-- Fixes bug where cache control settings was not saved properly. Fixes #7.
+- Added Content Disposition setting to Volume settings page (Thanks, @Saboteur777).
+
+## 1.1.1 - 2019-02-26
+### Fixed
+- Fixed bug where cache control settings was not saved properly. Fixes #7.
 
 ## 1.1.0 - 2019-02-02
 ### Added

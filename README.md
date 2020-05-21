@@ -33,19 +33,19 @@ Once you’ve created your Spaces volume in the Control Panel, you can override 
 First, add the following environment variables to your `.env` and `.env.example` files:
 
 ```
-# The AWS API key with read/write access to Spaces
+# The DigitalOcean API key with read/write access to Spaces
 SPACES_API_KEY=""
 
-# The AWS API key secret
+# The DigitalOcean API key secret
 SPACES_SECRET=""
 
-# The region the S3 bucket is in
+# The (origin) endpoint for the Spaces bucket
 SPACES_ENDPOINT=""
 
-# The region the S3 bucket is in
+# The region the Spaces bucket is in
 SPACES_REGION=""
 
-# The name of the S3 bucket
+# The name of the Spaces bucket
 SPACES_BUCKET=""
 
 ``` 

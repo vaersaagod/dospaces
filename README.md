@@ -39,7 +39,7 @@ SPACES_API_KEY=""
 # The DigitalOcean API key secret
 SPACES_SECRET=""
 
-# The (origin) endpoint for the Spaces bucket
+# The (origin) API endpoint (w/o bucket name, ie https://nyc3.digitaloceanspaces.com)
 SPACES_ENDPOINT=""
 
 # The region the Spaces bucket is in

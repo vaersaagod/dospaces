@@ -176,7 +176,7 @@ class Volume extends FlysystemVolume
 
         $client = static::client($config);
 
-        return new AwsS3Adapter($client, $this->getBucket(), $this->getSubfolder());
+        return new AwsS3Adapter($client, $this->getBucket(), $this->getSubfolder(), [], false);
     }
 
     /**

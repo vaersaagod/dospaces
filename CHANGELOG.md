@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3 - 2020-08-24
+### Fixed
+- Fixed an issue where downloading assets from Craft did not work (fixes #17).
+
 ## 1.1.2 - 2019-07-30
 ### Added
 - Added Content Disposition setting to Volume settings page (Thanks, @Saboteur777).

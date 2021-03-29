@@ -24,53 +24,21 @@ To install the plugin, follow these instructions.
 
 ## Usage
 
-To create a new asset volume for your Spaces bucket, go to Settings → Assets, create a new volume, and set the Volume Type setting to “DigitalOcean Spaces”.
+To create a new asset volume for your Spaces bucket, go to Settings → Assets, 
+create a new volume, and set the Volume Type setting to “DigitalOcean Spaces”.
+When configuring your volume, make sure you use env-variables, since some of the
+settings contain secrets that should not be exposed through your project
+config. [Read the following docs](https://craftcms.com/docs/3.x/config/#environmental-configuration), 
+and create variables as needed.
 
-### Per-Environment Configuration
-
-Once you’ve created your Spaces volume in the Control Panel, you can override its settings with different values for each environment.
-
-First, add the following environment variables to your `.env` and `.env.example` files:
-
-```
-# The DigitalOcean API key with read/write access to Spaces
-SPACES_API_KEY=""
-
-# The DigitalOcean API key secret
-SPACES_SECRET=""
-
-# The (origin) API endpoint (w/o bucket name, ie https://nyc3.digitaloceanspaces.com)
-SPACES_ENDPOINT=""
-
-# The region the Spaces bucket is in
-SPACES_REGION=""
-
-# The name of the Spaces bucket
-SPACES_BUCKET=""
-
-``` 
-
-Then fill in the values in your `.env` file (leaving the values in `.env.example` blank).
-
-Finally, create a `config/volumes.php` file containing references to these variables:
-
-```php
-<?php
-
-return [
-    'mySpacesVolumeHandle' => [
-        'hasUrls' => true,
-        'url' => 'https://my-spaces-bucket.ams3.digitaloceanspaces.com/',
-        'keyId' => getenv('SPACES_API_KEY'),
-        'secret' => getenv('SPACES_SECRET'),
-        'endpoint' => getenv('SPACES_ENDPOINT'),
-        'region' => getenv('SPACES_REGION'),
-        'bucket' => getenv('SPACES_BUCKET'),
-    ],
-];
-```
+**Please note: If you want to use the Spaces CDN functionality, you only
+need to change the Base URL setting to your `.cdn.` URL. The endpoint URL
+should still be the one without `.cdn.`.**
 
 
 ## Price, license and support
 
-The plugin is released under the MIT license, meaning you can do what ever you want with it as long as you don't blame us. **It's free**, which means there is absolutely no support included, but you might get it anyway. Just post an issue here on github if you have one, and we'll see what we can do. 
+The plugin is released under the MIT license, meaning you can do what ever 
+you want with it as long as you don't blame us. **It's free**, which means 
+there is absolutely no support included, but you might get it anyway. Just 
+post an issue here on github if you have one, and we'll see what we can do. 

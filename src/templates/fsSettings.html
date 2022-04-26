@@ -7,8 +7,8 @@
     name: 'keyId',
     suggestEnvVars: true,
     suggestAliases: true,
-    value: (volume is defined ? volume.keyId : null),
-    errors: (volume is defined ? volume.getErrors('keyId') : null),
+    value: (fs is defined ? fs.keyId : null),
+    errors: (fs is defined ? fs.getErrors('keyId') : null),
     required: true,
 }) }}
 
@@ -19,8 +19,8 @@
     name: 'secret',
     suggestEnvVars: true,
     suggestAliases: true,
-    value: (volume is defined ? volume.secret : null),
-    errors: (volume is defined ? volume.getErrors('secret') : null),
+    value: (fs is defined ? fs.secret : null),
+    errors: (fs is defined ? fs.getErrors('secret') : null),
     required: true,
 }) }}
 
@@ -31,8 +31,8 @@
     name: 'endpoint',
     suggestEnvVars: true,
     suggestAliases: true,
-    value: (volume is defined ? volume.endpoint : null),
-    errors: (volume is defined ? volume.getErrors('endpoint') : null),
+    value: (fs is defined ? fs.endpoint : null),
+    errors: (fs is defined ? fs.getErrors('endpoint') : null),
     required: true,
 }) }}
 
@@ -43,8 +43,8 @@
     name: 'region',
     suggestEnvVars: true,
     suggestAliases: true,
-    value: (volume is defined ? volume.region : null),
-    errors: (volume is defined ? volume.getErrors('region') : null),
+    value: (fs is defined ? fs.region : null),
+    errors: (fs is defined ? fs.getErrors('region') : null),
     required: true,
     placeholder: "ams3"|t('dospaces')
 }) }}
@@ -56,22 +56,22 @@
     name: 'bucket',
     suggestEnvVars: true,
     suggestAliases: true,
-    value: (volume is defined ? volume.bucket : null),
-    errors: (volume is defined ? volume.getErrors('bucket') : null),
+    value: (fs is defined ? fs.bucket : null),
+    errors: (fs is defined ? fs.getErrors('bucket') : null),
     required: true,
     placeholder: "your-bucket-name"|t('dospaces')
 }) }}
 
 {{ forms.autosuggestField({
     label: "Subfolder"|t('dospaces'),
-    instructions: "If you want to use a bucket’s subfolder as a Volume, specify the path to use here."|t('dospaces'),
+    instructions: "If you want to use a bucket’s subfolder as a File System, specify the path to use here."|t('dospaces'),
     id: 'subfolder',
     class: 'ltr',
     name: 'subfolder',
     suggestEnvVars: true,
     suggestAliases: true,
-    value: (volume is defined ? volume.subfolder : null),
-    errors: (volume is defined ? volume.getErrors('subfolder') : null),
+    value: (fs is defined ? fs.subfolder : null),
+    errors: (fs is defined ? fs.getErrors('subfolder') : null),
     required: false,
     placeholder: "path/to/subfolder"|t('dospaces')
 }) }}
@@ -79,7 +79,7 @@
 <hr>
 
 {% set cacheInput %}
-    {% set expires = (volume.expires|length > 0 ? volume.expires|split(' ') : ['', ''])%}
+    {% set expires = (fs.expires|length > 0 ? fs.expires|split(' ') : ['', ''])%}
 
     <div class="flex">
         <div>
@@ -99,7 +99,7 @@
     </div>
     {{ forms.hidden({
         name: "expires",
-        value: volume.expires,
+        value: fs.expires,
         class: "expires-combined"
     }) }}
 {% endset %}
@@ -116,7 +116,7 @@
     id: 'contentDisposition',
     name: 'contentDisposition',
     options: contentDispositionOptions,
-    value: volume.contentDisposition,
+    value: fs.contentDisposition,
     class: 'do-content-disposition'
 }) }}
 

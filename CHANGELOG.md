@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+### Added
+- Added Craft 4 support.
+
 ## 1.1.3 - 2020-08-24
 ### Fixed
 - Fixed an issue where downloading assets from Craft did not work (fixes #17).

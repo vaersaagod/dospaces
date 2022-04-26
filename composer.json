@@ -2,7 +2,7 @@
   "name": "vaersaagod/dospaces",
   "description": "DigitalOcean Spaces integration for Craft CMS",
   "type": "craft-plugin",
-  "version": "1.1.3",
+  "version": "2.0.0-beta.1",
   "keywords": [
     "aws",
     "cms",
@@ -26,8 +26,9 @@
     "rss": "https://github.com/vaersaagod/dospaces/commits/master.atom"
   },
   "require": {
-    "craftcms/cms": "^3.1.0",
-    "league/flysystem-aws-s3-v3": "^1.0.28"
+    "php": "^8.0",
+    "craftcms/cms": "^4.0.0-beta.4",
+    "league/flysystem-aws-s3-v3": "^3.0.0"
   },
   "autoload": {
     "psr-4": {
@@ -35,7 +36,7 @@
     }
   },
   "extra": {
-    "name": "DigitalOcean Spaces Volume",
+    "name": "DigitalOcean Spaces File System",
     "handle": "dospaces",
     "changelogUrl": "https://raw.githubusercontent.com/vaersaagod/dospaces/master/CHANGELOG.md",
     "downloadUrl": "https://github.com/vaersaagod/dospaces/archive/master.zip"

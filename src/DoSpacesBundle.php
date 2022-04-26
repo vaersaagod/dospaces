@@ -1,8 +1,8 @@
 <?php
 /**
- * @link https://www.vaersaagod.no/
+ * @link      https://www.vaersaagod.no/
  * @copyright Copyright (c) Værsågod
- * @license MIT
+ * @license   MIT
  */
 
 namespace vaersaagod\dospaces;
@@ -18,7 +18,7 @@ class DoSpacesBundle extends AssetBundle
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         $this->sourcePath = '@vaersaagod/dospaces/resources';
 

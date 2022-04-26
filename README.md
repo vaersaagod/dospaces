@@ -2,11 +2,9 @@
 
 This plugin provides an [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces/) integration for [Craft CMS](https://craftcms.com/).
 
-The plugin is based on the first-party [AWS S3 Volume for Craft](https://github.com/craftcms/aws-s3/tree/master/src), and behaves in much the same way since Spaces is S3 compatible.  
-
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0 or later. 
+This plugin requires Craft CMS 4.0.0 or later. 
 
 ## Installation
 
@@ -28,7 +26,7 @@ To create a new asset volume for your Spaces bucket, go to Settings → Assets,
 create a new volume, and set the Volume Type setting to “DigitalOcean Spaces”.
 When configuring your volume, make sure you use env-variables, since some of the
 settings contain secrets that should not be exposed through your project
-config. [Read the following docs](https://craftcms.com/docs/3.x/config/#environmental-configuration), 
+config. [Read the following docs](https://craftcms.com/docs/4.x/config/#environmental-configuration), 
 and create variables as needed.
 
 **Please note: If you want to use the Spaces CDN functionality, you only
@@ -38,7 +36,7 @@ should still be the one without `.cdn.`.**
 
 ## Price, license and support
 
-The plugin is released under the MIT license, meaning you can do what ever 
+The plugin is released under the MIT license, meaning you can do whatever 
 you want with it as long as you don't blame us. **It's free**, which means 
 there is absolutely no support included, but you might get it anyway. Just 
 post an issue here on github if you have one, and we'll see what we can do. 

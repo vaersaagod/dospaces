@@ -1,4 +1,4 @@
-# DigitalOcean Spaces Volume
+# DigitalOcean Spaces Filesystem
 
 This plugin provides an [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces/) integration for [Craft CMS](https://craftcms.com/).
 

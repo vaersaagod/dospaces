@@ -18,13 +18,17 @@ To install the plugin, follow these instructions.
 
         composer require vaersaagod/dospaces
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for "DigitalOcean Spaces Volume".
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for "DigitalOcean Filesystem".
+
+## Upgrading from Craft 3.x 
+
+A migration will automatically be run on installation to upgrade the old Volume type to the new Filesystem type.  
 
 ## Usage
 
-To create a new asset volume for your Spaces bucket, go to Settings → Assets, 
-create a new volume, and set the Volume Type setting to “DigitalOcean Spaces”.
-When configuring your volume, make sure you use env-variables, since some of the
+To create a new asset filesystem for your Spaces bucket, go to Settings → Filesystems, 
+create a new filesystem, and set the Filesystem Type setting to “DigitalOcean Spaces”.
+When configuring your filesystem, make sure you use env-variables, since some of the
 settings contain secrets that should not be exposed through your project
 config. [Read the following docs](https://craftcms.com/docs/4.x/config/#environmental-configuration), 
 and create variables as needed.

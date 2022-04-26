@@ -37,7 +37,7 @@
     }
   },
   "extra": {
-    "name": "DigitalOcean Spaces File System",
+    "name": "DigitalOcean Spaces Filesystem",
     "handle": "dospaces",
     "schemaVersion": "2.0.0",
     "changelogUrl": "https://raw.githubusercontent.com/vaersaagod/dospaces/master/CHANGELOG.md",

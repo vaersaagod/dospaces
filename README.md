@@ -4,7 +4,7 @@ This plugin provides an [DigitalOcean Spaces](https://www.digitalocean.com/produ
 
 ## Requirements
 
-This plugin requires Craft CMS 4.0.0 or later. 
+This plugin requires Craft CMS 5.0.0-beta.2 or later. 
 
 ## Installation
 
@@ -19,10 +19,6 @@ To install the plugin, follow these instructions.
         composer require vaersaagod/dospaces
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for "DigitalOcean Filesystem".
-
-## Upgrading from Craft 3.x 
-
-A migration will automatically be run on installation to upgrade the old Volume type to the new Filesystem type.  
 
 ## Usage
 

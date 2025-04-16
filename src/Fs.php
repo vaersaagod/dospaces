@@ -8,7 +8,7 @@
 namespace vaersaagod\dospaces;
 
 use Aws\Credentials\Credentials;
-use Aws\Handler\GuzzleV6\GuzzleHandler;
+use Aws\Handler\Guzzle\GuzzleHandler;
 use Craft;
 use craft\behaviors\EnvAttributeParserBehavior;
 use craft\flysystem\base\FlysystemFs;

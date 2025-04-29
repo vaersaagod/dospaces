@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 - 2025-04-29
+### Fixed
+- Fixed guzzle namespace for AWS client (thanks @johnnynotsolucky, fixes #30).
+
 ## 2.0.0 - 2022-05-04
 ### Added
 - Added Craft 4 support.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0 - 2025-05-03
+### Fixed
+- Reintroduced fix from 3.0.1, and fixed requirements.
+
 ## 3.0.2 - 2025-05-03
 ### Fixed
 - Reverted fix in 3.0.1.

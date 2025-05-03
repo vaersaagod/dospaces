@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 - 2025-05-03
+### Fixed
+- Reverted fixed in 2.0.1.
+
 ## 2.0.1 - 2025-04-29
 ### Fixed
 - Fixed guzzle namespace for AWS client (thanks @johnnynotsolucky, fixes #30).

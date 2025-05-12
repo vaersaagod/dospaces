@@ -7,15 +7,16 @@
 
 namespace vaersaagod\dospaces;
 
-use Aws\Credentials\Credentials;
-use Aws\Handler\Guzzle\GuzzleHandler;
 use Craft;
 use craft\behaviors\EnvAttributeParserBehavior;
 use craft\flysystem\base\FlysystemFs;
 use craft\helpers\App;
 use craft\helpers\Assets;
 use craft\helpers\DateTimeHelper;
+
 use DateTime;
+
+use Aws\Credentials\Credentials;
 use League\Flysystem\AwsS3V3\AwsS3V3Adapter;
 use League\Flysystem\FilesystemAdapter;
 
@@ -252,7 +253,7 @@ class Fs extends FlysystemFs
         ];
 
         $client = Craft::createGuzzleClient();
-        $config['http_handler'] = new GuzzleHandler($client);
+        $config['http_handler'] = class_exists('Aws\\Handler\\Guzzle\\GuzzleHandler') ? new \Aws\Handler\Guzzle\GuzzleHandler($client) : new \Aws\Handler\GuzzleV6\GuzzleHandler($client);
 
         return $config;
     }

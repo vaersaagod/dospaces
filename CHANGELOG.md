@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 - 2025-05-12
+### Fixed
+- Changed composer dependency and resolved to testing for class in code (fixes #32 and #30).
+
 ## 2.1.0 - 2025-05-03
 ### Fixed
 - Reintroduced fix from 2.0.1, and fixed requirements.

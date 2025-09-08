@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.2.1 - 2025-09-08
+### Added
+- Added tips to settings (adresses #34)
+
+
 ## 3.2.0 - 2025-05-12
 ### Fixed
 - Changed composer dependency and resolved to testing for class in code (fixes #32 and #30).

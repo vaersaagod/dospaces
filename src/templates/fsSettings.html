@@ -1,31 +1,33 @@
 {% import "_includes/forms" as forms %}
 
-{{ forms.autosuggestField({
-    label: "Access Key ID"|t('dospaces'),
-    id: 'keyId',
-    class: 'ltr',
-    name: 'keyId',
-    suggestEnvVars: true,
-    suggestAliases: true,
-    value: (fs is defined ? fs.keyId : null),
-    errors: (fs is defined ? fs.getErrors('keyId') : null),
-    required: true,
-}) }}
+<div class="readable">
+    <blockquote class="note tip">
+        <p>
+            To determine these values are, navigate to you spaces bucket in DigitalOcean, and copy the "Origin Endpoint", located at the top right.<br>
+            The URL will look something like this:<br><br>
+            
+            <strong>https://[bucket-name].[region].digitaloceanspaces.com</strong><br><br>
+            
+            The API Endpoint is this URL, without the bucket name, like this:<br><br>
+            
+            <strong>https://[region].digitaloceanspaces.com</strong><br><br>
+            
+            The "Region" and "Bucket" settings below are the corresponding <strong>[region]</strong> and <strong>[bucket-name]</strong> values.<br><br>
+            
+            To be able to set the "Base URL" above, you need to enable the "Files in this filesystem have public URLs" lightswitch.<br> 
+            <strong>The value should be the whole "Origin Endpoint" URL. Do not add the subfolder from the "Subfolder" setting below, if you've added one.</strong><br><br>
+            
+            If you want to use the DigitalOcean Spaces CDN, you need to enable it in the Settings for your bucket in DigitalOcean. You will then be able to see the "CDN Endpoint"-URL
+            by selecting it in the dropdown in the top right, where you found the origin URL. <strong>This value should then be used as the Base URL above, while all the other settings below 
+            should be as described above</strong>.
+        </p>
+    </blockquote>
+</div>
+
+<hr>
 
 {{ forms.autosuggestField({
-    label: "Secret Access Key"|t('dospaces'),
-    id: 'secret',
-    class: 'ltr',
-    name: 'secret',
-    suggestEnvVars: true,
-    suggestAliases: true,
-    value: (fs is defined ? fs.secret : null),
-    errors: (fs is defined ? fs.getErrors('secret') : null),
-    required: true,
-}) }}
-
-{{ forms.autosuggestField({
-    label: "Endpoint"|t('dospaces'),
+    label: "API Endpoint"|t('dospaces'),
     id: 'endpoint',
     class: 'ltr',
     name: 'endpoint',
@@ -75,6 +77,44 @@
     required: false,
     placeholder: "path/to/subfolder"|t('dospaces')
 }) }}
+
+
+<hr>
+
+<div class="readable">
+    <blockquote class="note tip">
+        <p>
+            Access Key ID and Secret Access Key can be created from the DigitalOcean control panel under "Spaces Object Storage" > "Access Keys" > "Create Access Key".
+        </p>
+    </blockquote>
+</div>
+
+<hr>
+
+{{ forms.autosuggestField({
+    label: "Access Key ID"|t('dospaces'),
+    id: 'keyId',
+    class: 'ltr',
+    name: 'keyId',
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (fs is defined ? fs.keyId : null),
+    errors: (fs is defined ? fs.getErrors('keyId') : null),
+    required: true,
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Secret Access Key"|t('dospaces'),
+    id: 'secret',
+    class: 'ltr',
+    name: 'secret',
+    suggestEnvVars: true,
+    suggestAliases: true,
+    value: (fs is defined ? fs.secret : null),
+    errors: (fs is defined ? fs.getErrors('secret') : null),
+    required: true,
+}) }}
+
 
 <hr>
 
